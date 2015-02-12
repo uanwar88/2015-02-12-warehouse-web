@@ -83,3 +83,14 @@ post '/fetch' do
     # end
   end
 end
+
+post '/edit' do
+  @edit_id = params['id'].to_i
+  if params['e'].to_i == 1
+    slim :editing
+  else
+    Item.edit(params["name"].downcase,params["category"],params["location"],params["quantity"].to_i,params["cost"].to_f,params["description"],@edit_id)
+    @pcl_text = "Item updated successfully!"
+    slim :success
+  end
+end

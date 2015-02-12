@@ -1,0 +1,53 @@
+div class="form"
+  h2 Edit product
+  form action="edit?update=1" method="post"
+    p Product name:
+    input type="text" size="50" name="name"
+    p Choose a category:
+    select name="category" style="width: 100px"
+      - Category.list_cats.each do |x|
+        option value="#{x["id"]}" #{x["name"]}
+    p Choose a location:
+    select name="location" style="width: 100px"
+      - Location.list_locations.each do |x|
+        option value="#{x["id"]}" #{x["name"]}
+    p Quantity:
+    input type="text" size="5" name="quantity"
+    p Cost:
+    input type="text" size="5" name="cost"
+    p Description:
+    textarea name="description" cols="40" rows="10"
+    br
+    br
+    input type="hidden" name = "id" value="#{@edit_id}"
+    input type="submit"
+
+div class="list"
+  h3 style="color: blue;" Current Record
+  - @item = Item.fetch_item_by(@edit_id,1)
+  - category = Category.list_cat(@item[0]["category"])
+  - location = Location.list_loc(@item[0]["location"])
+  - item = Item.fetch_item_by(@edit_id, 1)
+  | Product ID: #{@edit_id}
+  br
+  br
+  | Name: #{item[0]["name"]}
+  br
+  br
+  | Category: #{category[0]["name"]}
+  br
+  br
+  | Location: #{location[0]["name"]}
+  br
+  br
+  | Quantity: #{item[0]["quantity"]}
+  br
+  br
+  | Cost: #{item[0]["cost"]}
+  br
+  br
+  | Description:
+  br
+  | #{item[0]["description"]}
+  br
+  br

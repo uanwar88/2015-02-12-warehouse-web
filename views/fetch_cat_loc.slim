@@ -1,0 +1,17 @@
+div class = "form"
+  -if @pcl == 2
+    h3 List of categories
+    - Category.list_cats.each do |x|
+      | Category ID: #{x['id']}
+      br
+      | Name: #{x['name']}
+      br
+      br
+  - if @pcl == 3
+    h3 List of locations
+    - Location.list_locations.each do |x|
+      | Location ID: #{x['id']}
+      br
+      | Name: #{x['name']}
+      br
+      br
