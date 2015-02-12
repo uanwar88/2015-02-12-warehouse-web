@@ -1,0 +1,20 @@
+div class="form"
+  h2 Edit item record
+  form action="edit?edit=1" method="post"
+    p Enter product ID or name:
+    input type="text" size="25"
+    br
+    br
+    input type="submit"
+
+div class="list"
+  h3 style="color: blue;" Current Inventory
+  - Item.list_items.each do |x|
+    strong
+      | Product ID: #{x["id"]}
+    br
+    strong
+      | Name: #{x["name"]}
+    br
+    br
+  div class="bottom"

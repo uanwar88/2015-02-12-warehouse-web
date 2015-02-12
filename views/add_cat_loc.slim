@@ -1,0 +1,16 @@
+div class="form"
+  -if @pcl == 2
+    - @pcl_text = "Category"
+  - else
+    - @pcl_text = "Location"
+  h2 Add #{@pcl_text}
+  form action="addcl?add=1" method="post"
+    p #{@pcl_text} name:
+    input type="text" size="50" name="name"
+    - if @pcl == 2
+      input type="hidden" name="pcl" value="2"
+    - if @pcl == 3
+      input type="hidden" name="pcl" value="3"
+    br
+    br
+    input type="submit"

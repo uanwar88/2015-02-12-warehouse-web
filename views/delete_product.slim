@@ -1,0 +1,17 @@
+div class="form"
+  h2 Delete item record
+  form action="delete?item=1" method="post"
+    p Enter product ID:
+    input type="text" size="25" name="id"
+    br
+    br
+    input type="submit"
+
+div class="list"
+  h3 style="color: blue;" Current Inventory
+  - Item.list_items.each do |x|
+    | Product ID: #{x["id"]}
+    br
+    | Name: #{x["name"]}
+    br
+    br

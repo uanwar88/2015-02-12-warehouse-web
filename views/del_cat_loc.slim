@@ -1,0 +1,21 @@
+div class="form"
+  -if @pcl == 2
+    - @pcl_text = "Category"
+  - else
+    - @pcl_text = "Location"
+  h2 Delete #{@pcl_text}
+  form action="delcl?del=1" method="post"
+    p #{@pcl_text} name:
+    - if @pcl == 2
+        input type="hidden" name="pcl" value="2"
+        select name="category"
+          - Category.list_cats.each do |x|
+            option value="#{x["name"]}" #{x["name"]}
+    - if @pcl == 3
+        input type="hidden" name="pcl" value="3"
+        select name="location"
+          - Location.list_locations.each do |x|
+            option value="#{x["name"]}" #{x["name"]}
+    br
+    br
+    input type="submit" value="Delete"

@@ -1,0 +1,22 @@
+div class="form"
+  h2 Add new item
+  form action="add_item?add=1" method="post"
+    p Product name:
+    input type="text" size="50" name="name"
+    p Choose a category:
+    select name="category"
+      - Category.list_cats.each do |x|
+        option value="#{x["id"]}" #{x["name"]}
+    p Choose a location:
+    select name="location"
+      - Location.list_locations.each do |x|
+        option value="#{x["id"]}" #{x["name"]}
+    p Quantity:
+    input type="text" size="5" name="quantity"
+    p Cost:
+    input type="text" size="5" name="cost"
+    p Description:
+    textarea name="description" cols="40" rows="10"
+    br
+    br
+    input type="submit"

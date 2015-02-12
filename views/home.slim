@@ -1,0 +1,25 @@
+div class="form"
+  p What would you like to do?
+  form action="manager" method="get"
+    select name="action"
+      option value="1" Add
+      option value="2" Delete
+      option value="3" Fetch
+      option value="4" Edit
+    span
+      select name="pcl"
+        option value="1" ... item.
+        option value="2" ... category.
+        option value="3" ... location.
+    br
+    br
+    input type="submit"
+
+div class="list"
+  h3 style="color: blue;" Current Inventory
+  - Item.list_items.each do |x|
+    | Product ID: #{x["id"]}
+    br
+    | Product Name: #{x["name"]}
+    br
+    br
