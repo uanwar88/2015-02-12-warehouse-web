@@ -1,26 +1,21 @@
 div class="form"
   h2 Item Record for Item ID #{@item_id}
 
-  - @item = Item.fetch_item_by(@item_id,1)
-  - category = Category.list_cat(@item[0]["category"])
-  - location = Location.list_loc(@item[0]["location"])
-
-  - item = Item.fetch_item_by(@item_id, 1)
-  | Name: #{item[0]["name"]}
+  | Name: #{@item[0]["name"]}
   br
   br
-  | Category: #{category[0]["name"]}
+  | Category: #{@category[0]["name"]}
   br
   br
-  | Location: #{location[0]["name"]}
+  | Location: #{@location[0]["name"]}
   br
   br
-  | Quantity: #{item[0]["quantity"]}
+  | Quantity: #{@item[0]["quantity"]}
   br
   br
-  | Cost: #{item[0]["cost"]}
+  | Cost: #{@item[0]["cost"]}
   br
   br
   | Description:
   br
-  | #{item[0]["description"]}
+  | #{@item[0]["description"]}

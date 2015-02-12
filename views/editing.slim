@@ -1,5 +1,5 @@
 div class="form"
-  h2 Edit product
+  h2 Edit item record
   form action="edit?update=1" method="post"
     p Product name:
     input type="text" size="50" name="name"
@@ -27,11 +27,10 @@ div class="list"
   - @item = Item.fetch_item_by(@edit_id,1)
   - category = Category.list_cat(@item[0]["category"])
   - location = Location.list_loc(@item[0]["location"])
-  - item = Item.fetch_item_by(@edit_id, 1)
   | Product ID: #{@edit_id}
   br
   br
-  | Name: #{item[0]["name"]}
+  | Name: #{@item[0]["name"]}
   br
   br
   | Category: #{category[0]["name"]}
@@ -40,14 +39,14 @@ div class="list"
   | Location: #{location[0]["name"]}
   br
   br
-  | Quantity: #{item[0]["quantity"]}
+  | Quantity: #{@item[0]["quantity"]}
   br
   br
-  | Cost: #{item[0]["cost"]}
+  | Cost: #{@item[0]["cost"]}
   br
   br
   | Description:
   br
-  | #{item[0]["description"]}
+  | #{@item[0]["description"]}
   br
   br

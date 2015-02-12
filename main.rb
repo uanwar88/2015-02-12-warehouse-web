@@ -77,6 +77,9 @@ post '/fetch' do
   if params["fetch"].to_i == 1
     # if params["id"].to_i != 0
       @item_id = params["id"].to_i
+      @item = Item.fetch_item_by(@item_id,1)
+      @category = Category.list_cat(@item[0]["category"])
+      @location = Location.list_loc(@item[0]["location"])
       slim :fetched_item
     # else
     #   slim :fetch_product
