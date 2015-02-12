@@ -3,9 +3,9 @@ class Item
 
   #create a new Item object
   def initialize(item_name,item_cat,item_loc,item_quant,item_price,item_desc)
-    @item_name = item_name
-    @item_cat = item_cat
-    @item_loc = item_loc
+    @item_name = item_name.downcase
+    @item_cat = item_cat.to_i
+    @item_loc = item_loc.to_i
     @item_quant = item_quant
     @item_price = item_price
     @item_desc = item_desc

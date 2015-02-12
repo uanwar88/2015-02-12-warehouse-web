@@ -7,6 +7,10 @@ class Category
     DATABASE.execute("SELECT * FROM categories")
   end
 
+  def self.list_cat(value)
+    DATABASE.execute("SELECT * FROM categories WHERE id = #{value}")
+  end
+
   def self.delete(value)
     if value.is_a?(Integer)
       DATABASE.execute("DELETE FROM categories WHERE id = #{value}")
@@ -14,4 +18,5 @@ class Category
       DATABASE.execute("DELETE FROM categories WHERE name = '#{value}'")
     end
   end
+
 end

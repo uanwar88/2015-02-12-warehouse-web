@@ -22,8 +22,8 @@ end
 
 post '/add_item' do
   if params["add"].to_i == 1
-    @pcl_text = "Item"
-    new_item = Item.new(params["name"],params["category"].to_i,params["location"].to_i,params["quantity"],params["cost"],params["description"])
+    @pcl_text = "Item added successfully!"
+    new_item = Item.new(params["name"],params["category"],params["location"],params["quantity"],params["cost"],params["description"])
     new_item.insert
     slim :success
   else
@@ -70,5 +70,16 @@ post '/delete' do
     slim :success
   else
     slim :error
+  end
+end
+
+post '/fetch' do
+  if params["fetch"].to_i == 1
+    # if params["id"].to_i != 0
+      @item_id = params["id"].to_i
+      slim :fetched_item
+    # else
+    #   slim :fetch_product
+    # end
   end
 end
