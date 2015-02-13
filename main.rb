@@ -6,6 +6,7 @@ require 'slim'
 
 
 require_relative 'database_setup'
+require_relative 'modules'
 require_relative 'location'
 require_relative 'item0'
 require_relative 'category'
@@ -78,7 +79,7 @@ post '/fetch' do
     # if params["id"].to_i != 0
       @item_id = params["id"].to_i
       @item = Item.fetch_item_by(@item_id,1)
-      @new_item = Item.new(@item[0])
+      @item_obj = Item.new(@item[0])
       @category = Category.list_cat(@item[0]["category"])
       @location = Location.list_loc(@item[0]["location"])
       slim :fetched_item

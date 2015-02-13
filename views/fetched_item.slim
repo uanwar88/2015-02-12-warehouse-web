@@ -1,7 +1,7 @@
 div class="form"
-  h2 Item Record for Item ID #{@item_id}
+  h2 Item Record for Item ID #{@item_obj.item_id}
 
-  | Name: #{@item[0]["name"]}
+  | Name: #{@item_obj.item_name}
   br
   br
   | Category: #{@category[0]["name"]}
@@ -10,12 +10,12 @@ div class="form"
   | Location: #{@location[0]["name"]}
   br
   br
-  | Quantity: #{@item[0]["quantity"]}
+  | Quantity: #{@item_obj.item_quant}
   br
   br
-  | Cost: #{@item[0]["cost"]}
+  | Cost: #{@item_obj.item_price}
   br
   br
   | Description:
   br
-  | #{@item[0]["description"]}
+  | #{@item_obj.item_desc}

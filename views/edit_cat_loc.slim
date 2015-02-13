@@ -24,7 +24,7 @@ div class="form"
 div class="list"
   -if @pcl == 2
     h3 List of categories
-    - Category.list_cats.each do |x|
+    - Category.list_all.each do |x|
       | Category ID: #{x['id']}
       br
       | Name: #{x['name']}
@@ -33,7 +33,7 @@ div class="list"
 
   - if @pcl == 3
     h3 List of locations
-    - Location.list_locations.each do |x|
+    - Location.list_all.each do |x|
       | Location ID: #{x['id']}
       br
       | Name: #{x['name']}
