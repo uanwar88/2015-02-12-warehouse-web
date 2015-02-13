@@ -5,21 +5,21 @@
         == slim :add_cat_loc
       - if @pcl == 3
         == slim :add_cat_loc
-  - elsif @action == 2
+    - elsif @action == 2
       - if @pcl == 1
         == slim :delete_product
       - if @pcl == 2
         == slim :del_cat_loc
       - if @pcl == 3
         == slim :del_cat_loc
-  - elsif @action == 3
+    - elsif @action == 3
       - if @pcl == 1
         == slim :fetch_product
       - if @pcl == 2
         == slim :fetch_cat_loc
       - if @pcl == 3
         == slim :fetch_cat_loc
-  -elsif @action == 4
+    -elsif @action == 4
       - if @pcl == 1
         == slim :edit_product
       - if @pcl == 2

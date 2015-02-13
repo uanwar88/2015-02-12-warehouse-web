@@ -7,7 +7,7 @@ require 'slim'
 
 require_relative 'database_setup'
 require_relative 'location'
-require_relative 'item'
+require_relative 'item0'
 require_relative 'category'
 
 get '/' do
@@ -23,7 +23,7 @@ end
 post '/add_item' do
   if params["add"].to_i == 1
     @pcl_text = "Item added successfully!"
-    new_item = Item.new(params["name"],params["category"],params["location"],params["quantity"],params["cost"],params["description"])
+    new_item = Item.new({"name" => params["name"], "category" => params["category"],"location" => params["location"],"quantity" => params["quantity"],"cost" => params["cost"],"description" => params["description"]})
     new_item.insert
     slim :success
   else
@@ -78,6 +78,7 @@ post '/fetch' do
     # if params["id"].to_i != 0
       @item_id = params["id"].to_i
       @item = Item.fetch_item_by(@item_id,1)
+      @new_item = Item.new(@item[0])
       @category = Category.list_cat(@item[0]["category"])
       @location = Location.list_loc(@item[0]["location"])
       slim :fetched_item
