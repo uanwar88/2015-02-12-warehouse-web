@@ -46,14 +46,17 @@ class Item
     end
   end
 
+#list all items with name and ids only
   def self.list_items
     DATABASE.execute("SELECT id, name FROM items")
   end
 
+#list all items including all fields
   def self.list_items_details
     DATABASE.execute("SELECT * FROM items")
   end
 
+#fetch all item details by id, name, category, location
   def self.fetch_item_by(input,num)
     if num == 1
       DATABASE.execute("SELECT * FROM items WHERE id = #{input}")
@@ -66,6 +69,7 @@ class Item
     end
   end
 
+#edit all item details by id or name
   def self.edit(item_name,item_cat,item_loc,item_quant,item_price,item_desc,input)
     if input.is_a?(Integer)
       DATABASE.execute("UPDATE items SET name = '#{item_name}', category = '#{item_cat}', location = '#{item_loc}', quantity = #{item_quant},
