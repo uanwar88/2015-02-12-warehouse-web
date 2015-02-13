@@ -1,0 +1,41 @@
+div class="form"
+  -if @pcl == 2
+    - @pcl_text = "Category"
+  - else
+    - @pcl_text = "Location"
+  h2 Edit #{@pcl_text}
+  form action="editcl?update=1" method="post"
+    | #{@pcl_text} ID:
+    br
+    input type ="text" size="25" name="id"
+    br
+    br
+    | #{@pcl_text} name:
+    br
+    input type="text" size="25" name="name"
+    - if @pcl == 2
+      input type="hidden" name="pcl" value="2"
+    - if @pcl == 3
+      input type="hidden" name="pcl" value="3"
+    br
+    br
+    input type="submit"
+
+div class="list"
+  -if @pcl == 2
+    h3 List of categories
+    - Category.list_cats.each do |x|
+      | Category ID: #{x['id']}
+      br
+      | Name: #{x['name']}
+      br
+      br
+
+  - if @pcl == 3
+    h3 List of locations
+    - Location.list_locations.each do |x|
+      | Location ID: #{x['id']}
+      br
+      | Name: #{x['name']}
+      br
+      br

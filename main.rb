@@ -97,3 +97,19 @@ post '/edit' do
     slim :success
   end
 end
+
+post '/editcl' do
+  @pcl = params['pcl'].to_i
+
+  if params['update'].to_i == 1
+    if @pcl == 2
+      Category.update(params['name'],params['id'].to_i)
+      @pcl_text = "Category updated successfully!"
+      slim :success
+    else
+      Location.update(params['name'],params['id'].to_i)
+      @pcl_text = "Location updated successfully!"
+      slim :success
+    end
+  end
+end

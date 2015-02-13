@@ -19,4 +19,7 @@ class Category
     end
   end
 
+  def self.update(name,id)
+    DATABASE.execute("UPDATE categories SET name = '#{name}' WHERE id = #{id}")
+  end
 end

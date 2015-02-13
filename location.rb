@@ -18,4 +18,8 @@ class Location
       DATABASE.execute("DELETE FROM locations WHERE name = '#{value}'")
     end
   end
+
+  def self.update(name,id)
+    DATABASE.execute("UPDATE locations SET name = '#{name}' WHERE id = #{id}")
+  end
 end
