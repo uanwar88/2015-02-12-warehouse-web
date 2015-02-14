@@ -3,10 +3,10 @@ require 'sqlite3'
 require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'slim'
-
+require_relative 'modules'
 
 require_relative 'database_setup'
-require_relative 'modules'
+
 require_relative 'location'
 require_relative 'item0'
 require_relative 'category'
@@ -80,8 +80,8 @@ post '/fetch' do
       @item_id = params["id"].to_i
       @item = Item.fetch_item_by(@item_id,1)
       @item_obj = Item.new(@item[0])
-      @category = Category.list_cat(@item[0]["category"])
-      @location = Location.list_loc(@item[0]["location"])
+      @category = Category.list_one(@item[0]["category"])
+      @location = Location.list_one(@item[0]["location"])
       slim :fetched_item
     # else
     #   slim :fetch_product

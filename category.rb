@@ -1,6 +1,6 @@
 class Category
-  @cat_loc = "categories"
-  include Logic
+  @loc_cat = "categories"
+  extend Logic
   #add a new category
 #   def self.add(name)
 #     DATABASE.execute("INSERT INTO categories (name) VALUES ('#{name}')")

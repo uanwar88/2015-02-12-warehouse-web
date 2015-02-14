@@ -5,11 +5,11 @@ div class="form"
     input type="text" size="50" name="name"
     p Choose a category:
     select name="category" style="width: 100px"
-      - Category.list_cats.each do |x|
+      - Category.list_all.each do |x|
         option value="#{x["id"]}" #{x["name"]}
     p Choose a location:
     select name="location" style="width: 100px"
-      - Location.list_locations.each do |x|
+      - Location.list_all.each do |x|
         option value="#{x["id"]}" #{x["name"]}
     p Quantity:
     input type="text" size="5" name="quantity"
@@ -25,8 +25,8 @@ div class="form"
 div class="list"
   h3 style="color: blue;" Current Record
   - @item = Item.fetch_item_by(@edit_id,1)
-  - category = Category.list_cat(@item[0]["category"])
-  - location = Location.list_loc(@item[0]["location"])
+  - category = Category.list_one(@item[0]["category"])
+  - location = Location.list_one(@item[0]["location"])
   | Product ID: #{@edit_id}
   br
   br

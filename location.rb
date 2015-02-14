@@ -1,7 +1,7 @@
 class Location
   #add a new location
-  @cat_loc = "locations"
-  include Logic
+  @loc_cat = "locations"
+  extend Logic
 #   def self.add(name)
 #     DATABASE.execute("INSERT INTO locations (name) VALUES ('#{name}')")
 #   end
